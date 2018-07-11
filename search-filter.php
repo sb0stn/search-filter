@@ -2,7 +2,7 @@
 /*
 Plugin Name: Search & Filter
 Plugin URI: http://www.designsandcode.com/447/wordpress-search-filter-plugin-for-taxonomies/
-Description: Search and Filtering system for Pages, Posts, Categories, Tags and Taxonomies
+Description: Note that this plugin uses a forked version to fix HTTPS mixed content present in 1.2.10 of the original plugin! See: https://github.com/sb0stn/search-filter. Search and Filtering system for Pages, Posts, Categories, Tags and Taxonomies.
 Author: Designs & Code
 Author URI: http://www.designsandcode.com/
 Version: 1.2.10
@@ -19,16 +19,16 @@ if (!defined('SEARCHANDFILTER_VERSION_NUM'))
     define('SEARCHANDFILTER_VERSION_NUM', '1.2.10');
 
 if (!defined('SEARCHANDFILTER_THEME_DIR'))
-    define('SEARCHANDFILTER_THEME_DIR', ABSPATH . 'wp-content/themes/' . get_template());
+    define('SEARCHANDFILTER_THEME_DIR', get_template_directory());
 
 if (!defined('SEARCHANDFILTER_PLUGIN_NAME'))
     define('SEARCHANDFILTER_PLUGIN_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
 
 if (!defined('SEARCHANDFILTER_PLUGIN_DIR'))
-    define('SEARCHANDFILTER_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . SEARCHANDFILTER_PLUGIN_NAME);
+    define('SEARCHANDFILTER_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 if (!defined('SEARCHANDFILTER_PLUGIN_URL'))
-    define('SEARCHANDFILTER_PLUGIN_URL', WP_PLUGIN_URL . '/' . SEARCHANDFILTER_PLUGIN_NAME);
+    define('SEARCHANDFILTER_PLUGIN_URL', plugins_url(SEARCHANDFILTER_PLUGIN_NAME));
 
 if (!defined('SEARCHANDFILTER_BASENAME'))
     define('SEARCHANDFILTER_BASENAME', plugin_basename(__FILE__));
@@ -548,7 +548,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 
 			//grab search term for prefilling search input
 			if(isset($wp_query->query['s']))
-			{//!"£$%^&*()
+			{//!"Â£$%^&*()
 				$this->searchterm = trim(get_search_query());
 			}
 
