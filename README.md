@@ -1,3 +1,6 @@
+This fork fixes an issue causing mixed content warnings. Nothing else is changed.
+
+
 WordPress Search &amp; Filter
 ==================
 
